@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "ManualInvoice"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "eca7a85b-2b6c-40f9-a844-f7a0f7bfb048"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "CertiverseFinancialDashboardSlicers"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fbf35fb6-7e76-4693-bab6-cf525cf748b0"
+  }
+}
