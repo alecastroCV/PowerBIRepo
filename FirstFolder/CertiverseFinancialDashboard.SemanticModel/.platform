@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "CertiverseFinancialDashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "10012655-4309-4158-ad28-8cd9101d588b"
+  }
+}

@@ -1,0 +1,579 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+  <rd:ReportUnitType>Mm</rd:ReportUnitType>
+  <rd:ReportID>129328d3-3a68-4ba3-af6a-3f5445aa9b4a</rd:ReportID>
+  <am:AuthoringMetadata>
+    <am:CreatedBy>
+      <am:Name>PBIRB</am:Name>
+      <am:Version>15.7.1811.11</am:Version>
+    </am:CreatedBy>
+    <am:UpdatedBy>
+      <am:Name>PBIRB</am:Name>
+      <am:Version>15.7.1811.11</am:Version>
+    </am:UpdatedBy>
+    <am:LastModifiedTimestamp>2024-09-17T17:59:53.8987102Z</am:LastModifiedTimestamp>
+  </am:AuthoringMetadata>
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="CertiverseDev_ManualInvoice">
+      <rd:SecurityType>None</rd:SecurityType>
+      <ConnectionProperties>
+        <DataProvider>PBIDATASET</DataProvider>
+        <ConnectString>Data Source=pbiazure://api.powerbi.com/;Identity Provider="https://login.microsoftonline.com/organizations, https://analysis.windows.net/powerbi/api, f0b72488-7082-488a-a7e8-eada97bd842d";Initial Catalog=sobe_wowvirtualserver-0cddccd9-be9e-451a-8cdd-283f4e5842fb;Integrated Security=ClaimsToken</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>3071237e-bf27-4e0f-96cd-1dcbbd20b7ba</rd:DataSourceID>
+      <rd:PowerBIWorkspaceName>CertiverseDev</rd:PowerBIWorkspaceName>
+      <rd:PowerBIDatasetName>ManualInvoice</rd:PowerBIDatasetName>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="ManualText">
+      <Query>
+        <DataSourceName>CertiverseDev_ManualInvoice</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="ManualOrganizationId">
+            <Value>=Parameters!spOrgId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="ManualYEAR">
+            <Value>=Parameters!spYear.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="ManualMONTH">
+            <Value>=Parameters!spMonth.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:DesignerState>
+          <QueryDefinition xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>DAX</CommandType>
+            <QuerySpecification xsi:type="MDXQuerySpecification">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Manual</DimensionName>
+                      <HierarchyName>OrganizationId</HierarchyName>
+                      <HierarchyUniqueName>[Manual].[OrganizationId]</HierarchyUniqueName>
+                      <LevelName>OrganizationId</LevelName>
+                      <UniqueName>[Manual].[OrganizationId].[OrganizationId]</UniqueName>
+                    </ID>
+                    <ItemCaption>OrganizationId</ItemCaption>
+                    <UniqueName>true</UniqueName>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Manual</DimensionName>
+                      <HierarchyName>YEAR</HierarchyName>
+                      <HierarchyUniqueName>[Manual].[YEAR]</HierarchyUniqueName>
+                      <LevelName>YEAR</LevelName>
+                      <UniqueName>[Manual].[YEAR].[YEAR]</UniqueName>
+                    </ID>
+                    <ItemCaption>YEAR</ItemCaption>
+                    <UniqueName>true</UniqueName>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Manual</DimensionName>
+                      <HierarchyName>MONTH</HierarchyName>
+                      <HierarchyUniqueName>[Manual].[MONTH]</HierarchyUniqueName>
+                      <LevelName>MONTH</LevelName>
+                      <UniqueName>[Manual].[MONTH].[MONTH]</UniqueName>
+                    </ID>
+                    <ItemCaption>MONTH</ItemCaption>
+                    <UniqueName>true</UniqueName>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Manual</DimensionName>
+                      <HierarchyName>Title</HierarchyName>
+                      <HierarchyUniqueName>[Manual].[Title]</HierarchyUniqueName>
+                      <LevelName>Title</LevelName>
+                      <UniqueName>[Manual].[Title].[Title]</UniqueName>
+                    </ID>
+                    <ItemCaption>Title</ItemCaption>
+                    <UniqueName>true</UniqueName>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Manual</DimensionName>
+                      <HierarchyName>Description</HierarchyName>
+                      <HierarchyUniqueName>[Manual].[Description]</HierarchyUniqueName>
+                      <LevelName>Description</LevelName>
+                      <UniqueName>[Manual].[Description].[Description]</UniqueName>
+                    </ID>
+                    <ItemCaption>Description</ItemCaption>
+                    <UniqueName>true</UniqueName>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Manual</DimensionName>
+                      <HierarchyName>Value</HierarchyName>
+                      <HierarchyUniqueName>[Manual].[Value]</HierarchyUniqueName>
+                      <LevelName>Value</LevelName>
+                      <UniqueName>[Manual].[Value].[Value]</UniqueName>
+                    </ID>
+                    <ItemCaption>Value</ItemCaption>
+                    <UniqueName>true</UniqueName>
+                  </Item>
+                </Items>
+              </Select>
+              <AutoExecute>false</AutoExecute>
+              <From>Model</From>
+              <Filter>
+                <FilterItems>
+                  <FilterItem>
+                    <HierarchyUniqueName>[Manual].[OrganizationId]</HierarchyUniqueName>
+                    <Condition xsi:type="EqualTo">
+                      <Members />
+                      <Parametrized>true</Parametrized>
+                    </Condition>
+                  </FilterItem>
+                  <FilterItem>
+                    <HierarchyUniqueName>[Manual].[YEAR]</HierarchyUniqueName>
+                    <Condition xsi:type="EqualTo">
+                      <Members />
+                      <Parametrized>true</Parametrized>
+                    </Condition>
+                  </FilterItem>
+                  <FilterItem>
+                    <HierarchyUniqueName>[Manual].[MONTH]</HierarchyUniqueName>
+                    <Condition xsi:type="EqualTo">
+                      <Members />
+                      <Parametrized>true</Parametrized>
+                    </Condition>
+                  </FilterItem>
+                  <FilterItem>
+                    <HierarchyUniqueName>[Manual].[Title]</HierarchyUniqueName>
+                    <Condition xsi:type="NotEqualTo">
+                      <Members>
+                        <Member>
+                          <MemberUniqueName>[Manual].[Title].&amp;[Attn]</MemberUniqueName>
+                        </Member>
+                      </Members>
+                    </Condition>
+                  </FilterItem>
+                </FilterItems>
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties>
+                <IncludeMemberValue>true</IncludeMemberValue>
+              </QueryProperties>
+            </QuerySpecification>
+            <Query>
+              <Statement>EVALUATE SUMMARIZECOLUMNS('Manual'[OrganizationId], 'Manual'[YEAR], 'Manual'[MONTH], 'Manual'[Title], 'Manual'[Description], 'Manual'[Value], RSCustomDaxFilter(@ManualOrganizationId,EqualToCondition,[Manual].[OrganizationId],String), RSCustomDaxFilter(@ManualYEAR,EqualToCondition,[Manual].[YEAR],Int64), RSCustomDaxFilter(@ManualMONTH,EqualToCondition,[Manual].[MONTH],Int64), FILTER(VALUES('Manual'[Title]), ('Manual'[Title] &lt;&gt; "Attn")))</Statement>
+              <ParameterDefinitions>
+                <ParameterDefinition>
+                  <Name>ManualOrganizationId</Name>
+                  <DefaultValues />
+                  <Caption>OrganizationId</Caption>
+                  <HierarchyUniqueName>[Manual].[OrganizationId]</HierarchyUniqueName>
+                  <ParameterValuesQuery>
+                    <Statement>EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Manual'[OrganizationId], "h0")), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, 'Manual'[OrganizationId], "Blank()"), "ParameterValue", 'Manual'[OrganizationId], "ParameterLevel", [ParameterLevel], "'Manual'[OrganizationId]", 'Manual'[OrganizationId]) order by 'Manual'[OrganizationId], [ParameterLevel]</Statement>
+                    <ParameterizedStatement>
+                      <ReferencedParameters />
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                  <MultipleValues>true</MultipleValues>
+                  <AllowBlank>true</AllowBlank>
+                </ParameterDefinition>
+                <ParameterDefinition>
+                  <Name>ManualYEAR</Name>
+                  <DbType>Int64</DbType>
+                  <DefaultValues />
+                  <Caption>YEAR</Caption>
+                  <HierarchyUniqueName>[Manual].[YEAR]</HierarchyUniqueName>
+                  <ParameterValuesQuery>
+                    <Statement>EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Manual'[YEAR], "h0"), RSCustomDaxFilter(@ManualOrganizationId,EqualToCondition,[Manual].[OrganizationId],String)), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, 'Manual'[YEAR], "Blank()"), "ParameterValue", 'Manual'[YEAR], "ParameterLevel", [ParameterLevel], "'Manual'[YEAR]", 'Manual'[YEAR]) order by 'Manual'[YEAR], [ParameterLevel]</Statement>
+                    <ParameterizedStatement>
+                      <Statement>EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Manual'[YEAR], "h0"), RSCustomDaxFilter(@ManualOrganizationId,EqualToCondition,[Manual].[OrganizationId],String)), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, 'Manual'[YEAR], "Blank()"), "ParameterValue", 'Manual'[YEAR], "ParameterLevel", [ParameterLevel], "'Manual'[YEAR]", 'Manual'[YEAR]) order by 'Manual'[YEAR], [ParameterLevel]</Statement>
+                      <ReferencedParameters>
+                        <ReferencedParameter>
+                          <Name>ManualOrganizationId</Name>
+                        </ReferencedParameter>
+                      </ReferencedParameters>
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                  <MultipleValues>true</MultipleValues>
+                  <AllowBlank>true</AllowBlank>
+                </ParameterDefinition>
+                <ParameterDefinition>
+                  <Name>ManualMONTH</Name>
+                  <DbType>Int64</DbType>
+                  <DefaultValues />
+                  <Caption>MONTH</Caption>
+                  <HierarchyUniqueName>[Manual].[MONTH]</HierarchyUniqueName>
+                  <ParameterValuesQuery>
+                    <Statement>EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Manual'[MONTH], "h0"), RSCustomDaxFilter(@ManualOrganizationId,EqualToCondition,[Manual].[OrganizationId],String), RSCustomDaxFilter(@ManualYEAR,EqualToCondition,[Manual].[YEAR],Int64)), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, 'Manual'[MONTH], "Blank()"), "ParameterValue", 'Manual'[MONTH], "ParameterLevel", [ParameterLevel], "'Manual'[MONTH]", 'Manual'[MONTH]) order by 'Manual'[MONTH], [ParameterLevel]</Statement>
+                    <ParameterizedStatement>
+                      <Statement>EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Manual'[MONTH], "h0"), RSCustomDaxFilter(@ManualOrganizationId,EqualToCondition,[Manual].[OrganizationId],String), RSCustomDaxFilter(@ManualYEAR,EqualToCondition,[Manual].[YEAR],Int64)), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, 'Manual'[MONTH], "Blank()"), "ParameterValue", 'Manual'[MONTH], "ParameterLevel", [ParameterLevel], "'Manual'[MONTH]", 'Manual'[MONTH]) order by 'Manual'[MONTH], [ParameterLevel]</Statement>
+                      <ReferencedParameters>
+                        <ReferencedParameter>
+                          <Name>ManualOrganizationId</Name>
+                        </ReferencedParameter>
+                        <ReferencedParameter>
+                          <Name>ManualYEAR</Name>
+                        </ReferencedParameter>
+                      </ReferencedParameters>
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                  <MultipleValues>true</MultipleValues>
+                  <AllowBlank>true</AllowBlank>
+                </ParameterDefinition>
+              </ParameterDefinitions>
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+        <CommandText>EVALUATE SUMMARIZECOLUMNS('Manual'[OrganizationId], 'Manual'[YEAR], 'Manual'[MONTH], 'Manual'[Title], 'Manual'[Description], 'Manual'[Value], RSCustomDaxFilter(@ManualOrganizationId,EqualToCondition,[Manual].[OrganizationId],String), RSCustomDaxFilter(@ManualYEAR,EqualToCondition,[Manual].[YEAR],Int64), RSCustomDaxFilter(@ManualMONTH,EqualToCondition,[Manual].[MONTH],Int64), FILTER(VALUES('Manual'[Title]), ('Manual'[Title] &lt;&gt; "Attn")))</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="OrganizationId">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Manual[OrganizationId]</DataField>
+        </Field>
+        <Field Name="TITLE">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Manual[Title]</DataField>
+        </Field>
+        <Field Name="YEAR">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Manual[YEAR]</DataField>
+        </Field>
+        <Field Name="DESCRIPTION">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Manual[Description]</DataField>
+        </Field>
+        <Field Name="MONTH">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Manual[MONTH]</DataField>
+        </Field>
+        <Field Name="VALUE">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Manual[Value]</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix3">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>23.93854mm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>6mm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="VALUE1">
+                          <rd:DefaultName>VALUE1</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!VALUE.Value)</Value>
+                                  <Style>
+                                    <FontWeight>Normal</FontWeight>
+                                    <Format>n2</Format>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>White</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>6mm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox56">
+                          <rd:DefaultName>Textbox56</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!VALUE.Value)</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>'$'0.00</Format>
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>#f7f9fa</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="TITLE">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!TITLE.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!TITLE.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixMembers>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>52.18593mm</Size>
+                        <CellContents>
+                          <Textbox Name="TITLE">
+                            <rd:DefaultName>TITLE</rd:DefaultName>
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>=Fields!TITLE.Value</Value>
+                                    <Style>
+                                      <Color>#333333</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style />
+                              </Paragraph>
+                            </Paragraphs>
+                            <Style>
+                              <Border>
+                                <Style>None</Style>
+                              </Border>
+                              <BackgroundColor>White</BackgroundColor>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <Group Name="DESCRIPTION">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!DESCRIPTION.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Group>
+                          <SortExpressions>
+                            <SortExpression>
+                              <Value>=Fields!DESCRIPTION.Value</Value>
+                            </SortExpression>
+                          </SortExpressions>
+                          <TablixMembers>
+                            <TablixMember>
+                              <TablixHeader>
+                                <Size>64.85419mm</Size>
+                                <CellContents>
+                                  <Textbox Name="DESCRIPTION">
+                                    <rd:DefaultName>DESCRIPTION</rd:DefaultName>
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=Fields!DESCRIPTION.Value</Value>
+                                            <Style>
+                                              <FontWeight>Normal</FontWeight>
+                                              <Color>#333333</Color>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style />
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <Style>
+                                      <Border>
+                                        <Style>None</Style>
+                                      </Border>
+                                      <BackgroundColor>White</BackgroundColor>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                              <TablixMembers>
+                                <TablixMember>
+                                  <Group Name="Details" />
+                                </TablixMember>
+                              </TablixMembers>
+                            </TablixMember>
+                          </TablixMembers>
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>117.04012mm</Size>
+                        <CellContents>
+                          <Textbox Name="Textbox60">
+                            <rd:DefaultName>Textbox60</rd:DefaultName>
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>Total due to Certiverse</Value>
+                                    <Style>
+                                      <FontWeight>Bold</FontWeight>
+                                      <Color>#333333</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style />
+                              </Paragraph>
+                            </Paragraphs>
+                            <Style>
+                              <Border>
+                                <Style>None</Style>
+                              </Border>
+                              <BackgroundColor>#f7f9fa</BackgroundColor>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>ManualText</DataSetName>
+            <Top>0mm</Top>
+            <Left>0mm</Left>
+            <Height>12mm</Height>
+            <Width>140.97866mm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <Height>12mm</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Body>
+      <Width>140.97866mm</Width>
+      <Page>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>2cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>2cm</BottomMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="spOrgId">
+      <DataType>String</DataType>
+      <Prompt>org</Prompt>
+      <cl:ComponentMetadata>
+        <cl:HideUpdateNotifications>true</cl:HideUpdateNotifications>
+      </cl:ComponentMetadata>
+    </ReportParameter>
+    <ReportParameter Name="spYear">
+      <DataType>String</DataType>
+      <Prompt>yy</Prompt>
+      <cl:ComponentMetadata>
+        <cl:HideUpdateNotifications>true</cl:HideUpdateNotifications>
+      </cl:ComponentMetadata>
+    </ReportParameter>
+    <ReportParameter Name="spMonth">
+      <DataType>String</DataType>
+      <Prompt>mm</Prompt>
+      <cl:ComponentMetadata>
+        <cl:HideUpdateNotifications>true</cl:HideUpdateNotifications>
+      </cl:ComponentMetadata>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>spOrgId</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>spYear</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>spMonth</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+</Report>

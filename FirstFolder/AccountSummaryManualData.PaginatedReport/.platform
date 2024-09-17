@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "PaginatedReport",
+    "displayName": "AccountSummaryManualData"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6c8de4e5-97a9-42d3-b26e-69527f2a903d"
+  }
+}
