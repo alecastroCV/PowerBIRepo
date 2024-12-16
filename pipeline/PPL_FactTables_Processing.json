@@ -1,0 +1,52 @@
+{
+	"name": "PPL_FactTables_Processing",
+	"properties": {
+		"activities": [
+			{
+				"name": "Exam Deliveries",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PPL_ETL_ExamDeliveries",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Voucher Purchases",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Exam Deliveries",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PPL_ETL_VoucherPurchases",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "DWH_Certiverse/Transform_Load"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-12-03T19:31:08Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

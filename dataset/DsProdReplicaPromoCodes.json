@@ -1,0 +1,66 @@
+{
+	"name": "DsProdReplicaPromoCodes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedSQLProdReplica",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "DWH_Datasets"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "PromoCodeId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "OrganizationId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "MaxRedemptions",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PercentOff",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "IsActive",
+				"type": "bit"
+			},
+			{
+				"name": "IsArchived",
+				"type": "bit"
+			},
+			{
+				"name": "DateCreatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "DateUpdatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "ExpirationDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "PromoCodes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

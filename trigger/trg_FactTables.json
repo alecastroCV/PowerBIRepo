@@ -1,0 +1,42 @@
+{
+	"name": "trg_FactTables",
+	"properties": {
+		"description": "starts process for fact tables",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PPL_FactTables_Processing",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Week",
+				"interval": 1,
+				"startTime": "2024-12-04T11:00:00",
+				"timeZone": "Paraguay Standard Time",
+				"schedule": {
+					"minutes": [
+						0
+					],
+					"hours": [
+						8
+					],
+					"weekDays": [
+						"Monday",
+						"Tuesday",
+						"Wednesday",
+						"Thursday",
+						"Friday",
+						"Sunday",
+						"Saturday"
+					]
+				}
+			}
+		}
+	}
+}
