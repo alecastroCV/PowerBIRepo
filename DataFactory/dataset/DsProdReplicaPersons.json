@@ -1,0 +1,104 @@
+{
+	"name": "DsProdReplicaPersons",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedSQLProdReplica",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "DWH_Datasets"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FirstName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LastName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ExternalPictureUri",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Roles",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EnableLeaderBoardAnonymity",
+				"type": "bit"
+			},
+			{
+				"name": "DisableRecognitionNotifications",
+				"type": "bit"
+			},
+			{
+				"name": "DisableEmail",
+				"type": "bit"
+			},
+			{
+				"name": "DisabledEmailTypes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IsDashboardDismissed",
+				"type": "bit"
+			},
+			{
+				"name": "LastLoginDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "IsDeleted",
+				"type": "bit"
+			},
+			{
+				"name": "DateCreatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "DateUpdatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "DisplayCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IsPictureManualUpload",
+				"type": "bit"
+			},
+			{
+				"name": "UseMfaAuthenticator",
+				"type": "bit"
+			},
+			{
+				"name": "LastLoginAuthProviderId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LastLoginAuthProviderUserId",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Person2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
