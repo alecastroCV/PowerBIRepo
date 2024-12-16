@@ -1,9 +1,0 @@
-{
-	"name": "pvalueqa",
-	"location": "centralus",
-	"identity": {
-		"type": "SystemAssigned",
-		"principalId": "3b2950f6-96d7-4986-ba49-64bbe89349c9",
-		"tenantId": "9fabb60e-9c72-4160-8ccb-9a6bd2e5daaa"
-	}
-}
