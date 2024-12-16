@@ -1,0 +1,130 @@
+{
+	"name": "DsProdReplicaPersonExams",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedSQLProdReplica",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "DWH_Datasets"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "PersonId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "ExamAssessmentDeliverableId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "ExamId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "ExamFormId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "ExamStatus",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OrganizationId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "ProvisionedExamApplicationLanguage",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProvisionedBy",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProvisionedByData",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProvisionedDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "AdministrationDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "CompletedDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Provider",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProviderSecurityProfileId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProviderSessionId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProviderRecordingRating",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DateCreatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "DateUpdatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "IsProvisionedSecureBrowser",
+				"type": "bit"
+			},
+			{
+				"name": "PartnerDeliveryFeeAmount",
+				"type": "decimal",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "PartnerBillingNote",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PartnerDeliveryFeeDiscountAmount",
+				"type": "decimal",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "MonthlyFinancialId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "ProvisionedPbtData",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "PersonExams"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

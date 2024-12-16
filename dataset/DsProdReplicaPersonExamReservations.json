@@ -1,0 +1,348 @@
+{
+	"name": "DsProdReplicaPersonExamReservations",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedSQLProdReplica",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "DWH_Datasets"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "StoreExamId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "PersonId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "ExamRegistrationId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "ReservationCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ReservationStatus",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TransactionDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "ScheduledDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "TransactionTimezone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DateCreatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "DateUpdatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "PaymentMethod",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Currency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PaymentData",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ExpirationDate",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "ExpirationDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "ClosedDate",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "ClosedDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "OrganizationId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "TransactionDate",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "StoreExamDeliveryTypeId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "EligibilityData",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ApplicationLanguage",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DiscountAmount",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "ProcessingFeesAmount",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "TaxesAmount",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "DeliveryFeeAmount",
+				"type": "decimal",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "TimeAdditionalMinutes",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TimeExtendedByPersonId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "TimeExtendedDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "CertiverseCommerceFeeAmount",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			},
+			{
+				"name": "NetAmountNoTaxes",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "StoreExamAmount",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "SubTotalAmount",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "TotalAmountPaid",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "TotalAmountPaidNoTaxes",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "TimeZoneOffsetInMinutes",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "IsPracticeExam",
+				"type": "bit"
+			},
+			{
+				"name": "ExternalSchedulingSystemSlotId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EligibilityConfigurationId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "BillingNote",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DeliveryFeeDiscountAmount",
+				"type": "decimal",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "MonthlyFinancialId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "TestCenterId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "TestCenterIsExamUnlocked",
+				"type": "bit"
+			},
+			{
+				"name": "TestCenterSessionId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "VendorPBTReservationId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AssignedProctorPersonId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "AuthProviderConnectionId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TransactionCountryCodeIso2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ClientCandidateId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CandidateOs",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CandidateUserAgent",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ClosedReason",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ClosedByPersonId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "RescheduledOriginalReservationId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "RescheduledPreviousReservationId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "OverrideSecureBrowserEnabled",
+				"type": "bit"
+			},
+			{
+				"name": "OverrideSecureBrowserUpdatedByPersonId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "OverrideSecureBrowserUpdatedDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "IsProctorTerminated",
+				"type": "bit"
+			},
+			{
+				"name": "TestCenterUnlockCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TimeOrganizationAccommodationId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "TimeAccommodationType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DiscountAmountInCurrency",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "RefundAmount",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "StoreExamAmountInCurrency",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "AmountPaid",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "SubTotalAmountInCurrency",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "RefundTaxesAmount",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "PersonExamReservations"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

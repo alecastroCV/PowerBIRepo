@@ -1,0 +1,205 @@
+{
+	"name": "DsdwhOrganizations",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedSQLDev",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "DWH_Datasets"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IsSupport",
+				"type": "bit"
+			},
+			{
+				"name": "EnableLeaderBoardContributorPublishing",
+				"type": "bit"
+			},
+			{
+				"name": "IsDeleted",
+				"type": "bit"
+			},
+			{
+				"name": "DateCreatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "DateUpdatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "InternalName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EnabledInStore",
+				"type": "bit"
+			},
+			{
+				"name": "DoNotListInStore",
+				"type": "bit"
+			},
+			{
+				"name": "LandingPageCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CustomerSuccessManagerPersonId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "BillingAddressLine1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingAddressLine2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingAnnualMinimumGuarantees",
+				"type": "decimal",
+				"precision": 11,
+				"scale": 2
+			},
+			{
+				"name": "BillingAnnualSubscriptionFee",
+				"type": "decimal",
+				"precision": 11,
+				"scale": 2
+			},
+			{
+				"name": "BillingCertiverseEcommManagementFee",
+				"type": "decimal",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "BillingCity",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingContactName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingCountryCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingEmail",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingMonthlyMinimumBalance",
+				"type": "decimal",
+				"precision": 11,
+				"scale": 2
+			},
+			{
+				"name": "BillingMonthlyMinimumGuarantees",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			},
+			{
+				"name": "BillingMonthlySubscriptionFee",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			},
+			{
+				"name": "BillingNetTermsCycle",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingNetTermsOption",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingPhoneCountryCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BillingPhoneNumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingPlatformLicense",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingPostalCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingStateProvince",
+				"type": "nvarchar"
+			},
+			{
+				"name": "RequireSsoBooking",
+				"type": "bit"
+			},
+			{
+				"name": "RequireSsoBookingInstructions",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NumberOfDaysToTakeUnscheduledExam",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DisplayLoginInstructions",
+				"type": "bit"
+			},
+			{
+				"name": "DisplaySsoAsLoginOption",
+				"type": "bit"
+			},
+			{
+				"name": "LoginInstructions",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BillingClientName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IsBillingClientNameDifferent",
+				"type": "bit"
+			},
+			{
+				"name": "ImportedDataExamHistory",
+				"type": "bit"
+			},
+			{
+				"name": "ADFCopyDate",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ODS_Organizations"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

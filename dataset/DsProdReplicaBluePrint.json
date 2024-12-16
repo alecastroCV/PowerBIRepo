@@ -1,0 +1,148 @@
+{
+	"name": "DsProdReplicaBluePrint",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedSQLProdReplica",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "DWH_Datasets"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "OrganizationId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "JtaId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Status",
+				"type": "varchar"
+			},
+			{
+				"name": "JobRole",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IsDeleted",
+				"type": "bit"
+			},
+			{
+				"name": "DateCreatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "DateUpdatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "AssessmentLevelType",
+				"type": "varchar"
+			},
+			{
+				"name": "TargetTemplateAssessmentForms",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TargetTemplateAssessmentScoredItemsPerForm",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TargetTemplateBadItemMargin",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "TargetTemplateId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "ItemNamePadding",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ItemNamePrefix",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SubmittedItemReviewCredits",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ItemAgeLimitHours",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "MaxReviewsAllowed",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "NumberOfReviewsRequired",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "AllowItemReReview",
+				"type": "bit"
+			},
+			{
+				"name": "ItemAuthorWelcomeScreenUrl",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AllowItemExhibits",
+				"type": "bit"
+			},
+			{
+				"name": "ItemTypeConfigurations",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AllowItemReviewWithoutItemSubmission",
+				"type": "bit"
+			},
+			{
+				"name": "IsAIActive",
+				"type": "bit"
+			},
+			{
+				"name": "AllowAllAndNoneOfTheAboveOptions",
+				"type": "bit"
+			},
+			{
+				"name": "AllowNegativelyPhrasedStems",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "BluePrints"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
