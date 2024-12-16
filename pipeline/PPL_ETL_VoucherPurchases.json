@@ -1,0 +1,290 @@
+{
+	"name": "PPL_ETL_VoucherPurchases",
+	"properties": {
+		"activities": [
+			{
+				"name": "Historic_Increment",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "RecordsODS",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@activity('RecordsODS').output.OutputParameters.vRecords",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "Hist_ODS_VoucherPurchases",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "AzureSqlSink",
+									"preCopyScript": "IF OBJECT_ID('ODS_VoucherPurchases', 'U') IS NOT NULL\nbegin\n\ttruncate table dbo.ODS_VoucherPurchases\nend",
+									"writeBehavior": "insert",
+									"sqlWriterUseTableLock": false,
+									"tableOption": "autoCreate",
+									"disableMetricsCollection": false
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "DsProdReplicaVoucherPurchases",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DsdwhVoucherPurchases",
+									"type": "DatasetReference"
+								}
+							]
+						},
+						{
+							"name": "SP_Stg_VoucherPurchases_Hist",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "Hist_ODS_VoucherPurchases",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[dbo].[SP_Stg_VoucherPurchases]"
+							},
+							"linkedServiceName": {
+								"referenceName": "LinkedSQLDev",
+								"type": "LinkedServiceReference"
+							}
+						},
+						{
+							"name": "SP_FT_FtVoucherPurchases_Hist",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "SP_Stg_VoucherPurchases_Hist",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[dbo].[SP_FT_FtVoucherPurchases]",
+								"storedProcedureParameters": {
+									"LoadType": {
+										"value": "HISTORICAL",
+										"type": "String"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "LinkedSQLDev",
+								"type": "LinkedServiceReference"
+							}
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "ODS_VoucherPurchases",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"sqlReaderQuery": "select *\n  from dbo.VoucherPurchases\n where cast(PurchaseDateUtc as date) between DATEADD(day,-5,cast(getdate() as date)) and DATEADD(day,-1,cast(getdate() as date))",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "AzureSqlSink",
+									"preCopyScript": "IF OBJECT_ID('ODS_VoucherPurchases', 'U') IS NOT NULL\nbegin\n\ttruncate table dbo.ODS_VoucherPurchases\nend",
+									"writeBehavior": "insert",
+									"sqlWriterUseTableLock": false,
+									"tableOption": "autoCreate",
+									"disableMetricsCollection": false
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "DsProdReplicaVoucherPurchases",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DsdwhVoucherPurchases",
+									"type": "DatasetReference"
+								}
+							]
+						},
+						{
+							"name": "SP_Stg_VoucherPurchases",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "ODS_VoucherPurchases",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[dbo].[SP_Stg_VoucherPurchases]"
+							},
+							"linkedServiceName": {
+								"referenceName": "LinkedSQLDev",
+								"type": "LinkedServiceReference"
+							}
+						},
+						{
+							"name": "SP_FT_FtVoucherPurchases",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [
+								{
+									"activity": "SP_Stg_VoucherPurchases",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[dbo].[SP_FT_FtVoucherPurchases]",
+								"storedProcedureParameters": {
+									"LoadType": {
+										"value": "INCREMENTAL",
+										"type": "String"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "LinkedSQLDev",
+								"type": "LinkedServiceReference"
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "RecordsODS",
+				"description": "get records on ods tables to perform historic or incremental",
+				"type": "Script",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "LinkedSQLDev",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"parameters": [
+								{
+									"name": "vRecords",
+									"type": "Boolean",
+									"value": null,
+									"direction": "Output"
+								}
+							],
+							"type": "Query",
+							"text": "IF OBJECT_ID('FtVoucherPurchases', 'U') IS NOT NULL\nbegin\n\tselect @vRecords = case when COUNT(VoucherPurchaseId) > 0 THEN 1 else 0 end\n\t  from dbo.FtVoucherPurchases;\nend\nELSE\nbegin\n\tselect @vRecords = 0;\nend"
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00"
+				}
+			}
+		],
+		"folder": {
+			"name": "DWH_Certiverse/Transform_Load"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-12-04T21:13:24Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

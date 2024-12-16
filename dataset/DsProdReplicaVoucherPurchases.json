@@ -1,0 +1,171 @@
+{
+	"name": "DsProdReplicaVoucherPurchases",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedSQLProdReplica",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "DWH_Datasets"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "OrganizationId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "VoucherPartnerId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "VoucherProgramId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "PurchasedByPersonId",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "VendorTransactionId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "VoucherCodePrefix",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Quantity",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PricePerVoucher",
+				"type": "decimal",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "TotalPrice",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			},
+			{
+				"name": "Tax",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			},
+			{
+				"name": "ProcessingFee",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			},
+			{
+				"name": "PurchaseDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "ExpirationDateUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "IsDeleted",
+				"type": "bit"
+			},
+			{
+				"name": "DateCreatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "DateUpdatedUtc",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CertiverseCommerceFee",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			},
+			{
+				"name": "VendorInvoiceUrl",
+				"type": "nvarchar"
+			},
+			{
+				"name": "VendorReceiptUrl",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NetAmountNoTaxes",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			},
+			{
+				"name": "SubTotal",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			},
+			{
+				"name": "TotalAmountPaid",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			},
+			{
+				"name": "TotalAmountPaidNoTaxes",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			},
+			{
+				"name": "VoucherPurchaseCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DiscountTotal",
+				"type": "decimal",
+				"precision": 9,
+				"scale": 2
+			},
+			{
+				"name": "IsArchived",
+				"type": "bit"
+			},
+			{
+				"name": "PaymentMethod",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Notes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PurchaseDate",
+				"type": "datetime2",
+				"scale": 7
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "VoucherPurchases"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

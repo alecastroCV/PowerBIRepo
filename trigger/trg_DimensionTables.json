@@ -1,0 +1,42 @@
+{
+	"name": "trg_DimensionTables",
+	"properties": {
+		"description": "starts the dimension processing pipeline.",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PPL_Dimension_Processing",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Week",
+				"interval": 1,
+				"startTime": "2024-12-03T10:35:00",
+				"timeZone": "Paraguay Standard Time",
+				"schedule": {
+					"minutes": [
+						15
+					],
+					"hours": [
+						7
+					],
+					"weekDays": [
+						"Monday",
+						"Tuesday",
+						"Wednesday",
+						"Thursday",
+						"Friday",
+						"Sunday",
+						"Saturday"
+					]
+				}
+			}
+		}
+	}
+}
